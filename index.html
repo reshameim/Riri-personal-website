@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>♡ Riri's Cozy Space</title>
+
+  <style>
+    /* =========================================================
+       ⋆ ˚｡🌸⋆ ˚｡ EASY EDIT AREA
+       Change these colors to customize the whole website!
+       ========================================================= */
+    :root {
+      --pink: #ff8fbd;
+      --hot-pink: #ff8492;
+      --light-pink: #ffe4ef;
+      --soft-pink: #fff4f8;
+      --baby-pink: #ffd1e3;
+      --dark-pink: #a94370;
+      --text: #6b4052;
+      --white: #ffffff;
+      --shadow: 0 10px 30px rgba(220, 91, 145, 0.15);
+      --radius: 24px;
+    }
+
+    /* ---------- Basic setup ---------- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Trebuchet MS", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, #ffdbea 0 45px, transparent 46px),
+        radial-gradient(circle at 90% 20%, #ffeaf3 0 65px, transparent 66px),
+        var(--soft-pink);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ---------- Floating decorations ---------- */
+    .sparkle,
+    .heart {
+      position: fixed;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.65;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .sparkle { color: var(--hot-pink); font-size: 22px; }
+    .heart { color: var(--pink); font-size: 20px; }
+
+    .s1 { top: 18%; left: 4%; }
+    .s2 { top: 62%; right: 5%; animation-delay: 1s; }
+    .s3 { bottom: 12%; left: 8%; animation-delay: 2s; }
+    .h1 { top: 35%; right: 3%; animation-delay: 1.5s; }
+    .h2 { top: 78%; left: 3%; animation-delay: 3s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-5deg); }
+      50% { transform: translateY(-14px) rotate(8deg); }
+    }
+
+    /* ---------- Navigation ---------- */
+    nav {
+      position: sticky;
+      top: 14px;
+      z-index: 10;
+      width: min(1100px, calc(100% - 30px));
+      margin: 14px auto 0;
+      padding: 12px 18px;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      border: 2px solid var(--light-pink);
+      border-radius: 999px;
+      box-shadow: var(--shadow);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 900;
+      color: var(--hot-pink);
+      font-size: 1.15rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+      font-size: 0.95rem;
+      font-weight: bold;
+    }
+
+    .nav-links a:hover {
+      color: var(--hot-pink);
+    }
+
+    /* ---------- General layout ---------- */
+    .container {
+      width: min(1100px, calc(100% - 30px));
+      margin: auto;
+    }
+
+    section {
+      padding: 85px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title .tiny {
+      color: var(--hot-pink);
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--dark-pink);
+      margin: 5px 0;
+    }
+
+    .section-title p {
+      max-width: 600px;
+      margin: auto;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      place-items: center;
+      text-align: center;
+    }
+
+    .hero-card {
+      max-width: 1250px;
+      min-height: 580px;
+      padding: 90px 70px;
+      background: rgba(255, 255, 255, 0.78);
+      border: 3px solid var(--light-pink);
+      border-radius: 42px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "♡";
+      position: absolute;
+      font-size: 130px;
+      color: var(--light-pink);
+      top: -45px;
+      left: -15px;
+      transform: rotate(-15deg);
+    }
+
+    .hero-card::after {
+      content: "✦";
+      position: absolute;
+      font-size: 100px;
+      color: var(--baby-pink);
+      bottom: -30px;
+      right: 15px;
+    }
+
+    .bow {
+      font-size: 56px;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      color: var(--hot-pink);
+      font-size: clamp(3rem, 10vw, 6.5rem);
+      line-height: 0.95;
+      margin-bottom: 20px;
+      text-shadow: 3px 3px 0 #ffd3e4;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero p {
+      max-width: 620px;
+      margin: auto;
+      font-size: 1.1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .btn {
+      display: inline-block;
+      border: none;
+      cursor: pointer;
+      padding: 13px 23px;
+      border-radius: 999px;
+      background: var(--hot-pink);
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 6px 15px rgba(255, 95, 162, 0.25);
+      transition: 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px) scale(1.02);
+    }
+
+    .btn.secondary {
+      background: white;
+      color: var(--hot-pink);
+      border: 2px solid var(--baby-pink);
+      box-shadow: none;
+    }
+
+    /* ---------- About ---------- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      align-items: stretch;
+    }
+
+    .card {
+      background: white;
+      border: 2px solid var(--light-pink);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      color: var(--dark-pink);
+      margin-bottom: 10px;
+      font-size: 1.35rem;
+    }
+
+    .cute-list {
+      list-style: none;
+      margin-top: 15px;
+    }
+
+    .cute-list li {
+      padding: 9px 0;
+      border-bottom: 1px dashed var(--baby-pink);
+    }
+
+    .cute-list li:last-child {
+      border-bottom: none;
+    }
+
+    /* ---------- Cards ---------- */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .cute-card {
+      text-align: center;
+      transition: 0.25s ease;
+    }
+
+    .cute-card:hover {
+      transform: translateY(-7px);
+    }
+
+    .icon {
+      width: 75px;
+      height: 75px;
+      margin: 0 auto 18px;
+      display: grid;
+      place-items: center;
+      background: var(--light-pink);
+      border-radius: 50%;
+      font-size: 2rem;
+    }
+
+    /* ---------- Gallery ---------- */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .photo {
+      min-height: 230px;
+      border-radius: var(--radius);
+      border: 3px solid white;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(135deg, var(--baby-pink), var(--light-pink));
+      color: var(--dark-pink);
+      text-align: center;
+      padding: 20px;
+      transition: 0.25s ease;
+    }
+
+    .photo:hover {
+      transform: rotate(1deg) scale(1.02);
+    }
+
+    /* To use real photos, replace the background with:
+       background-image: url("your-photo.jpg");
+       background-size: cover;
+       background-position: center;
+    */
+
+    /* ---------- Quote ---------- */
+    .quote-box {
+      max-width: 800px;
+      margin: auto;
+      padding: 45px 30px;
+      text-align: center;
+      background: var(--hot-pink);
+      color: white;
+      border-radius: 35px;
+      box-shadow: var(--shadow);
+    }
+
+    .quote-box .quote {
+      font-size: clamp(1.5rem, 4vw, 2.3rem);
+      font-weight: bold;
+    }
+
+    .quote-box .from {
+      margin-top: 15px;
+      opacity: 0.9;
+    }
+
+    /* ---------- Contact ---------- */
+    .contact-box{max-width:800px;margin:auto;padding:50px 35px;background:white;border:1px solid var(--peach);border-radius:35px;box-shadow:var(--shadow);text-align:center}.contact-links{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:25px}.contact-link{padding:10px 18px;border:1px solid var(--peach);border-radius:25px;color:var(--deep);font-family:Arial,sans-serif;font-size:.85rem}.contact-link:hover{background:var(--peach)}
+    }
+
+    .field {
+      margin-bottom: 17px;
+    }
+
+    .field label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 6px;
+      color: var(--dark-pink);
+    }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2px solid var(--baby-pink);
+      border-radius: 15px;
+      outline: none;
+      background: #fffafd;
+      color: var(--text);
+      font: inherit;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: var(--pink);
+    }
+
+    .field textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      padding: 35px 15px;
+      text-align: center;
+      background: #ffe2ed;
+      color: var(--dark-pink);
+      font-size: 0.9rem;
+    }
+
+    /* ---------- Mobile ---------- */
+    @media (max-width: 760px) {
+      nav {
+        border-radius: 25px;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .nav-links {
+        gap: 13px;
+        flex-wrap: wrap;
+        justify-content: center;
+        font-size: 0.8rem;
+      }
+
+      .hero-card {
+        padding: 50px 20px;
+      }
+
+      .about-grid,
+      .cards,
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ✨ Cute floating decorations -->
+  <div class="sparkle s1">✦</div>
+  <div class="sparkle s2">✧</div>
+  <div class="sparkle s3">✦</div>
+  <div class="heart h1">♡</div>
+  <div class="heart h2">♥</div>
+
+  <!-- 🎀 NAVIGATION -->
+  <nav>
+    <!-- ✏️ CHANGE THIS -->
+    <a class="logo" href="#home">🎀 Riri's Cozy Space</a>
+
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#favorites">Favorites</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- 💗 HERO -->
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-card">
+          <div class="bow">🎀</div>
+
+          <!-- ✏️ CHANGE YOUR WEBSITE TITLE HERE -->
+          <h1>Hello, Cuties!</h1>
+          
+          <!-- ✏️ CHANGE YOUR INTRO HERE -->
+          <p>
+            Welcome to my little pink corner of the internet ♡
+            A cute space for my thoughts, favorites, memories, and everything
+            that makes me smile.
+          </p>
+
+          <div class="buttons">
+            <a class="btn" href="#about">♡ Get to know me</a>
+            <a class="btn secondary" href="#gallery">View my gallery ✨</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🌷 ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div class="section-title">
+          <div class="tiny">♡ a little glimpse ♡</div>
+          <h2>About Me</h2>
+          <p>I’m from Ozamiz City, Misamis Occidental, and I was born on July 2, 2003. I’m someone who loves simple things that make life feel a little more beautiful—pink things, peaceful places, nature trips, and spending time near the water.</p>
+        </div>
+
+        <!-- ABOUT ME: replace the photo placeholder and edit the paragraphs -->
+        <section id="about"><div class="container"></div>
+        <div class="about-photo"><div class="placeholder"><div><div style="font-size:4rem"><center>🌸</center></div><strong></div><center><IMG SRC="IMG_3955.jpg"></center></strong><p></p></div></div></div>
+          <div class="card">
+            <!-- ✏️ CHANGE THIS -->  
+          <h3>Hi, I'm Reshamei! ♡</h3>
+            <p>
+              I once dreamed of becoming a doctor, never imagining that nursing would become part of my story. I was shy and introverted, and the thought of constantly facing patients and speaking to people felt like a path I was never meant to take. Nursing was never my first choice—it was simply a road I found myself walking.
+
+            Yet somewhere along the way, I began to fall in love with it. Perhaps nursing is my bittersweet love story—the kind that feels cruel and difficult, yet somehow keeps me coming back. Through sleepless nights, endless duties, heavy lessons, and moments of doubt, nursing slowly shaped me into someone braver than the person who first entered this journey.
+
+            Now, I have come farther than I ever thought I could. I may not know exactly where this road will lead, but I know I want to see it through. And someday, I hope to wear the title I once never imagined for myself: Nurse.
+            </p>
+          </div>
+
+        
+           <div class="card">
+             <h3>My Little Things 🎀</h3>
+             <ul class="cute-list">
+              <!-- ✏️ CHANGE THESE -->
+              <li>🌸 Favorite color: Light Teal Turquoise Blue Water😎</li>
+              <li>🧁 Favorite food: Anything spicy</li>
+              <li>🐰 Favorite animal: My furbaby meowmings</li>
+              <li>🎧 Current obsession: PIKOL!</li>
+              <li>✨ Motto: Don't look at the dream. Make it happen.</li>
+            </ul>
+          </div></div></div></section>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 🧁 FAVORITES -->
+    <section id="favorites">
+      <div class="container">
+        <div class="section-title">
+          <div class="tiny">♡ things I love ♡</div>
+          <h2>My Favorites</h2>
+          <p>Preferences blooming in my heart</p>
+        </div>
+
+        <div class="cards">
+
+          <div class="card cute-card">
+            <div class="icon">🎧</div>
+            <h3>Music</h3>
+            <p>5sos, Treasure & 99+ kpop, Flow G para astig, TJ Monterde para ako iyang palagi ug huli yiiee.</p>
+          </div>
+
+          <div class="card cute-card">
+            <div class="icon">💕</div>
+            <h3>Hobbies</h3>
+            <p>Nature trips--- hiking/mountain climbing, snorkling/freediving, spring/falls hopping, food trips, and pickleball, depende sa kwarta. Watching dramas, tiktok, codm, reading, painting/drawing, or writing poetries depende sa mood.</p>
+          </div>
+
+          <div class="card cute-card">
+            <div class="icon">🎬</div>
+            <h3>Movies/Series</h3>
+            <p>Xinxia or Wuxia dramas especially Zhao Lusi, medical/legal/mystery dramas, korean dramas, thai series, and japanese movies supremacy. Please suggest STAT.  </p></div>
+       </div>
+      </div>
+    </section>
+
+    <!-- 📸 GALLERY -->
+    <section id="gallery">
+      <div class="container">
+        <div class="section-title">
+          <div class="tiny">♡ little memories ♡</div>
+          <h2>My Gallery</h2>
+          <p>Where I bloom</p>
+        </div>
+
+        <div class="gallery">
+
+          <!-- ✏️ To add an image, replace the contents with:
+               <img src="photo.jpg" alt="Description">
+          -->
+          <div class="photo">
+            <div>
+              <div style="font-size: 3rem;">🌸</div>
+              <strong>Mountain Climbing</strong>
+              <p><IMG SRC="IMG_3138.jpg"><strong>Mt. Anggas</strong> 
+              <p>♡</p>
+            </div>
+          </div>
+
+          <div class="photo">
+            <div>
+              <div style="font-size: 3rem;">🎀</div>
+              <strong>Siquijor Trip</strong>
+              <p><IMG src="IMG_1388.jpg"><strong>Pitogo Cliff</strong> 
+              <p>♡</p>
+            </div>
+          </div>
+
+          <div class="photo">
+            <div>
+              <div style="font-size: 3rem;">🤿</div>
+              <strong>Snorkling and Freediving</strong>
+              <p><img src="IMG_9427.JPG"><strong>Moalboal</strong> 
+              <p>♡</p>
+            </div>
+          </div>
+
+          <div class="photo">
+            <div>
+              <div style="font-size: 3rem;">🌺</div>
+              <strong>Falls hopping</strong>
+              <p><img src="IMG_3727.jpg"><strong>Kawasan Cebu</strong> 
+              <p>♡</p>
+            </div>
+          </div>
+
+          <div class="photo">
+            <div>
+              <div style="font-size: 3rem;">🩷</div>
+              <strong>Seafood Trip</strong>
+              <p><img src="riri.png"><strong>Sinacaban</strong> 
+              <p>♡</p>
+            </div>
+          </div>
+
+          <div class="photo">
+            <div>
+              <div style="font-size: 3rem;">🪷</div>
+              <strong>Siquijor Trip</strong>
+              <p><img src="IMG_8044.jpg"><strong>Hapitanan</strong> 
+              <p>♡</p>
+            </div>
+          </div>
+
+          <div class="photo">
+            <div>
+              <div style="font-size: 3rem;">❤︎</div>
+              <strong>Capping 2024</strong>
+              <p><img src="IMG_5698.jpg"><strong>MSU-IIT</strong> 
+              <p>♡</p>
+            </div>
+          </div>
+
+          <div class="photo">
+            <div>
+              <div style="font-size: 3rem;">🩸</div>
+              <strong>OR Exposure</strong>
+              <p><img src="IMG_4715.jpg"><strong>AMCI</strong> 
+              <p>♡</p>
+            </div>
+          </div>
+
+          <div class="photo">
+            <div>
+              <div style="font-size: 3rem;">📝</div>
+              <strong>Ward Exposure</strong>
+              <p><img src="IMG_7672.jpg"><strong>GTLMH</strong> 
+              <p>♡</p>
+            </div>
+          </div>
+
+         <div class="photo">
+            <div>
+              <div style="font-size: 3rem;">🎢</div>
+              <strong>Rides</strong>
+              <p><img src="IMG_4658.jpg"><strong>Anjo World Cebu</strong> 
+              <p>♡</p>
+            </div>
+          </div>
+          
+          <div class="photo">
+            <div>
+              <div style="font-size: 3rem;">🌈</div>
+              <strong>YARS</strong>
+              <p><img src="IMG_8559.jpg"><strong>Pikol na ta</strong> 
+              <p>♡</p>
+            </div>
+          </div>
+
+          <div class="photo">
+            <div>
+              <div style="font-size: 3rem;">⛸️</div>
+              <strong>Ice Skating</strong>
+              <p><img src="IMG_4619.jpg"><strong>SM Seaside Cebu</strong> 
+              <p>♡</p>
+            </div>
+          </div>
+
+          <div class="photo">
+            <div>
+              <div style="font-size: 3rem;">✎</div>
+              <strong>Digi Art 3/4 Shot</strong>
+              <p><img src="115_20201127214231.png"><strong>Haruto Watanabe</strong> 
+              <p>♡</p>
+            </div>
+          </div>
+
+          <div class="photo">
+            <div>
+              <div style="font-size: 3rem;">✎</div>
+              <strong>Digi Art Baby</strong>
+              <p><img src="185_20210605145508.png"><strong>Cousin</strong> 
+              <p>♡</p>
+            </div>
+          </div>
+
+         <div class="photo">
+            <div>
+              <div style="font-size: 3rem;">✎</div>
+              <strong>Digi Art Close-up Shot</strong>
+              <p><img src="112_20201125210858.png"><strong>Irene</strong> 
+              <p>♡</p>
+            </div>
+          </div>
+
+          <div class="photo">
+            <div>
+              <div style="font-size: 3rem;">🎨</div>
+              <strong>Traditional Art</strong>
+              <p><img src="IMG_20190610_201735.jpg"><strong>Jeong-in</strong> 
+              <p>♡</p>
+            </div>
+          </div>
+
+          <div class="photo">
+            <div>
+              <div style="font-size: 3rem;">✎</div>
+              <strong>T-shirt Layout</strong>
+              <p><img src="Einstein.png"><strong>EinSTEin</strong> 
+              <p>♡</p>
+            </div>
+          </div>
+
+          <div class="photo">
+            <div>
+              <div style="font-size: 3rem;">✎</div>
+              <strong>Digi Art Half Body</strong>
+              <p><img src="phonto.png"><strong>Haruto Watanabe</strong> 
+              <p>♡</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 💌 QUOTE -->
+    <section>
+      <div class="container">
+        <div class="quote-box">
+          <!-- ✏️ CHANGE THIS -->
+          <div class="quote">
+            “Bloom softly. You don't have to rush.” 🌷
+          </div>
+          <div class="from">♡ a little reminder</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT: replace the three links with your own -->
+<section id="contact"><div class="container">
+<center><div class="section-heading"><div class="eyebrow">♡ leave a little note ♡</div><h2>Contact Me</h2><p>Let's keep in touch.</p></div> </center>
+
+<div class="contact-box"><p>Thank you for visiting my little garden. You can find me through the links below.</p>
+<div class="contact-links">
+<a class="contact-link" href="https://www.instagram.com/iemriri" target="_blank">Instagram ♡</a>
+<a class="contact-link" href="https://web.facebook.com/iaemriri" target="_blank">Facebook ♡</a>
+</div></div></div></section>
+
+        
+  </main>
+
+  <!-- 🌸 FOOTER -->
+  <footer>
+    <!-- ✏️ CHANGE THIS -->
+    Made with ♡ and a little bit of pink 🎀
+    <br>
+    © 2026 Reshamei T. Montano
+  </footer>
+
+  <script>
+    /* =========================================================
+       💗 SIMPLE JAVASCRIPT
+       ========================================================= */
+
+    function sendMessage() {
+      alert("Thank you for your message! ♡");
+    }
+  </script>
+
+</body>
+</html>
